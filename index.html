@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Convert images online for free with ConvertX.">
+  <title>ConvertX - Free Online File Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <a class="logo" href="#">Convert<span>X</span></a>
+  <nav>
+    <a href="#tools">Tools</a>
+    <a href="#converter">Converter</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="tag">FREE ONLINE CONVERSION</p>
+    <h1>Convert Files <span>Without Limits.</span></h1>
+    <p class="subtitle">
+      Simple, fast and secure file conversion.
+      No software installation required.
+    </p>
+    <a href="#converter" class="primary-btn">Start Converting</a>
+  </section>
+
+  <section class="converter" id="converter">
+    <h2>Image Converter</h2>
+    <p>Select an image and choose your output format.</p>
+
+    <label class="upload-box" id="dropZone">
+      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp">
+      <span class="upload-icon">↑</span>
+      <strong>Choose an image</strong>
+      <span>or drag and drop it here</span>
+      <small>PNG, JPG, WebP</small>
+    </label>
+
+    <div id="fileInfo"></div>
+
+    <div class="controls">
+      <label for="format">Convert to</label>
+      <select id="format">
+        <option value="image/png">PNG</option>
+        <option value="image/jpeg">JPG</option>
+        <option value="image/webp">WebP</option>
+      </select>
+
+      <button id="convertBtn">Convert Now</button>
+    </div>
+
+    <div id="result"></div>
+  </section>
+
+  <section class="tools" id="tools">
+    <h2>Popular Tools</h2>
+    <div class="tool-grid">
+      <div class="tool-card">JPG to PNG</div>
+      <div class="tool-card">PNG to JPG</div>
+      <div class="tool-card">WebP Converter</div>
+      <div class="tool-card">Image Converter</div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>Why ConvertX?</h2>
+    <p>Convert images directly in your browser.
+       Your image files are not uploaded to our server.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 ConvertX. All rights reserved.</p>
+  <p>Simple. Fast. Secure.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
