@@ -1,358 +1,240 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>ConvertX - Free Online PDF, Image & Word Converter</title>
-
-  <meta name="description" content="Convert PDF, Word, JPG, PNG and WebP files online for free with ConvertX. Fast, easy and private file conversion directly in your browser.">
-
+  <title>ConvertX — Free Online PDF & Image Converters</title>
+  <meta name="description" content="Convert PDF to JPG, JPG to PDF, PDF to Word, and PNG to JPG online for free with ConvertX.">
   <meta name="robots" content="index, follow">
-
-  <meta name="author" content="ConvertX">
-
   <link rel="canonical" href="https://parveenrathee99i-cmyk.github.io/ConvertX/">
-
-  <!-- Open Graph SEO -->
-  <meta property="og:title" content="ConvertX - Free Online File Converter">
-  <meta property="og:description" content="Convert PDF, Word and image files online for free. Fast, secure and easy file conversion.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://parveenrathee99i-cmyk.github.io/ConvertX/">
-
-  <meta name="theme-color" content="#2563eb">
-
   <link rel="stylesheet" href="style.css">
-
-  <!-- Conversion Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+    }
+    header {
+      background: #ffffff;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #2563eb;
+    }
+    header a {
+      text-decoration: none;
+      color: inherit;
+    }
+    nav {
+      display: flex;
+      gap: 22px;
+    }
+    nav a {
+      color: #475569;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #2563eb;
+    }
+    .hero {
+      text-align: center;
+      padding: 64px 20px 36px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .hero h2 {
+      font-size: 38px;
+      margin: 0 0 14px;
+      color: #0f172a;
+    }
+    .hero p {
+      margin: 0;
+      font-size: 17px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+    .tools-section {
+      max-width: 1050px;
+      margin: 20px auto 50px;
+      padding: 0 20px;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      gap: 22px;
+    }
+    .tool-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 26px 22px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, .06);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(37, 99, 235, .12);
+    }
+    .tool-badge {
+      display: inline-block;
+      width: fit-content;
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .tool-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #0f172a;
+    }
+    .tool-card p {
+      margin: 0 0 22px;
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .tool-btn {
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      background: #2563eb;
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 9px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .tool-btn:hover {
+      background: #1d4ed8;
+    }
+    .info-section {
+      max-width: 1010px;
+      margin: 24px auto;
+      padding: 28px 30px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, .04);
+    }
+    .info-section h2 {
+      margin-top: 0;
+      color: #1e40af;
+    }
+    .info-section p, .info-section li {
+      color: #475569;
+      line-height: 1.75;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      margin-top: 50px;
+      background: #172554;
+      color: #ffffff;
+    }
+    footer a {
+      color: #bfdbfe;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 14px;
+      }
+      nav {
+        gap: 15px;
+      }
+      .hero h2 {
+        font-size: 28px;
+      }
+      .info-section {
+        margin: 18px;
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <h1><a href="index.html">ConvertX</a></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<!-- HEADER -->
-<header class="navbar">
+  <main>
+    <section class="hero">
+      <h2>Fast &amp; Simple File Converters</h2>
+      <p>Convert documents and images directly in your browser with ConvertX — no complicated setup required.</p>
+    </section>
 
-  <a class="logo" href="index.html">
-    Convert<span>X</span>
-  </a>
+    <section class="tools-section" aria-label="Available Converters">
+      <div class="tools-grid">
+        <article class="tool-card">
+          <div>
+            <span class="tool-badge">PDF → JPG</span>
+            <h3>PDF to JPG Converter</h3>
+            <p>Turn PDF pages into individual JPG images so you can easily view or share them.</p>
+          </div>
+          <a class="tool-btn" href="pdf-to-jpg.html">Open PDF to JPG</a>
+        </article>
 
-  <nav>
-    <a href="index.html">Converter</a>
-    <a href="resizer.html">Image Resizer</a>
-    <a href="about.html">About</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="contact.html">Contact</a>
+        <article class="tool-card">
+          <div>
+            <span class="tool-badge">JPG → PDF</span>
+            <h3>JPG to PDF Converter</h3>
+            <p>Combine one or more JPG images into a clean, shareable PDF document.</p>
+          </div>
+          <a class="tool-btn" href="jpg-to-pdf.html">Open JPG to PDF</a>
+        </article>
 
-    <button id="themeToggle" class="theme-btn" title="Toggle Dark/Light Mode">
-      🌙
-    </button>
-  </nav>
+        <article class="tool-card">
+          <div>
+            <span class="tool-badge">PDF → DOCX</span>
+            <h3>PDF to Word Converter</h3>
+            <p>Extract selectable text from your PDF into an editable Word DOCX file.</p>
+          </div>
+          <a class="tool-btn" href="pdf-to-word.html">Open PDF to Word</a>
+        </article>
 
-</header>
-
-
-<main>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-
-    <p class="tag">FREE ALL-IN-ONE ONLINE FILE CONVERTER</p>
-
-    <h1>
-      Free Online File Converter –
-      <span>PDF, Image & Word</span>
-    </h1>
-
-    <p class="subtitle">
-      Convert PDF, JPG, PNG, WebP and Word (.docx) files
-      directly in your browser. Fast, easy and private.
-    </p>
-
-    <a href="#converter" class="primary-btn">
-      Start Converting
-    </a>
-
-  </section>
-
-
-  <!-- CONVERTER SECTION -->
-  <section class="converter" id="converter">
-
-    <h2>Free Online File Converter</h2>
-
-    <p>
-      Convert PDF, Word (.docx), JPG, PNG and WebP files
-      into different formats easily.
-    </p>
-
-    <label class="upload-box" id="dropZone">
-
-      <input
-        type="file"
-        id="fileInput"
-        accept="image/png,image/jpeg,image/webp,application/pdf,.docx,.txt"
-        multiple
-      >
-
-      <span class="upload-icon">↑</span>
-
-      <strong>Choose files</strong>
-
-      <span>or drag and drop multiple files here</span>
-
-      <small>
-        Supports PDF, Word (.docx), JPG, PNG and WebP
-      </small>
-
-    </label>
-
-
-    <div id="fileInfo"></div>
-
-
-    <!-- CONVERSION SETTINGS -->
-    <div class="settings-panel">
-
-      <div class="control-group">
-
-        <label for="format">Convert To</label>
-
-        <select id="format">
-
-          <optgroup label="Document Formats">
-
-            <option value="application/pdf">
-              PDF Document (.pdf)
-            </option>
-
-            <option value="application/msword">
-              Word Document (.doc)
-            </option>
-
-            <option value="text/plain">
-              Plain Text (.txt)
-            </option>
-
-          </optgroup>
-
-
-          <optgroup label="Image Formats">
-
-            <option value="image/jpeg">
-              JPG Image (.jpg)
-            </option>
-
-            <option value="image/png">
-              PNG Image (.png)
-            </option>
-
-            <option value="image/webp">
-              WebP Image (.webp)
-            </option>
-
-          </optgroup>
-
-        </select>
-
+        <article class="tool-card">
+          <div>
+            <span class="tool-badge">PNG → JPG</span>
+            <h3>PNG to JPG Converter</h3>
+            <p>Convert PNG images into standard JPG format for broader compatibility and smaller sizes.</p>
+          </div>
+          <a class="tool-btn" href="png-to-jpg.html">Open PNG to JPG</a>
+        </article>
       </div>
-
-
-      <div class="control-group" id="qualityGroup">
-
-        <label for="quality">
-          Output Quality:
-          <span id="qualityValue">90%</span>
-        </label>
-
-        <input
-          type="range"
-          id="quality"
-          min="10"
-          max="100"
-          value="90"
-        >
-
-      </div>
-
-    </div>
-
-
-    <!-- ACTION BUTTONS -->
-    <div class="action-buttons">
-
-      <button id="convertBtn" class="primary-btn">
-        Convert All Now
-      </button>
-
-      <button
-        id="clearBtn"
-        class="secondary-btn"
-        style="display:none;"
-      >
-        Clear
-      </button>
-
-    </div>
-
-
-    <div id="result" class="result-grid"></div>
-
-  </section>
-
-
-  <!-- SUPPORTED CONVERSIONS -->
-  <section class="tools" id="tools">
-
-    <h2>All Supported File Conversions</h2>
-
-    <p>
-      Convert your files into popular formats using ConvertX.
-    </p>
-
-    <div class="tool-grid">
-
-      <div class="tool-card" data-format="application/pdf" data-quality="90">
-        JPG / PNG to PDF
-      </div>
-
-      <div class="tool-card" data-format="image/jpeg" data-quality="90">
-        PDF to JPG
-      </div>
-
-      <div class="tool-card" data-format="image/png" data-quality="90">
-        PDF to PNG
-      </div>
-
-      <div class="tool-card" data-format="application/msword" data-quality="90">
-        PDF to Word
-      </div>
-
-      <div class="tool-card" data-format="application/pdf" data-quality="90">
-        Word to PDF
-      </div>
-
-      <div class="tool-card" data-format="image/png" data-quality="90">
-        JPG to PNG
-      </div>
-
-      <div class="tool-card" data-format="image/jpeg" data-quality="85">
-        PNG to JPG
-      </div>
-
-      <div class="tool-card" data-format="image/webp" data-quality="85">
-        WebP Converter
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- WHY CONVERTX -->
-  <section class="about" id="about">
-
-    <h2>Why Choose ConvertX?</h2>
-
-    <p>
-      Convert your PDF documents, Word files and images
-      directly inside your browser.
-      Your files are processed on your device,
-      helping keep your documents private.
-    </p>
-
-  </section>
-
-
-  <!-- SEO CONTENT -->
-  <section class="about">
-
-    <h2>Convert Files Online for Free</h2>
-
-    <p>
-      ConvertX is an online file conversion tool designed
-      to help users convert documents and images into
-      popular file formats.
-    </p>
-
-    <p>
-      Use ConvertX to convert JPG to PDF, PNG to JPG,
-      PDF to JPG, PDF to PNG and other supported formats.
-      You can also use our image resizer to resize images.
-    </p>
-
-    <p>
-      ConvertX works directly in your web browser.
-      No desktop software installation is required.
-    </p>
-
-  </section>
-
-
-  <!-- FAQ SECTION -->
-  <section class="about">
-
-    <h2>Frequently Asked Questions</h2>
-
-    <h3>Is ConvertX free to use?</h3>
-
-    <p>
-      Yes, ConvertX is designed to provide free online
-      file conversion tools.
-    </p>
-
-
-    <h3>Do I need to install software?</h3>
-
-    <p>
-      No. You can use ConvertX directly in a supported
-      web browser.
-    </p>
-
-
-    <h3>Are my files uploaded to a server?</h3>
-
-    <p>
-      The supported browser-based conversions are
-      processed locally on your device.
-    </p>
-
-
-    <h3>Which file formats are supported?</h3>
-
-    <p>
-      ConvertX supports selected PDF, DOCX, JPG,
-      PNG, WebP and TXT conversions.
-    </p>
-
-  </section>
-
-</main>
-
-
-<!-- FOOTER -->
-<footer>
-
-  <p>© 2026 ConvertX. All rights reserved.</p>
-
-  <p>
-    <a href="index.html">Home</a> |
-    <a href="resizer.html">Image Resizer</a> |
-    <a href="about.html">About</a> |
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="contact.html">Contact</a>
-  </p>
-
-</footer>
-
-
-<!-- MAIN JAVASCRIPT -->
-<script src="script.js"></script>
-
+    </section>
+
+    <section class="info-section">
+      <h2>Why Use ConvertX?</h2>
+      <ul>
+        <li><strong>Four essential converters in one place:</strong> PDF to JPG, JPG to PDF, PDF to Word, and PNG to JPG.</li>
+        <li><strong>Easy workflow:</strong> Pick a tool, select your file, convert, and download.</li>
+        <li><strong>Mobile &amp; desktop friendly:</strong> Responsive layout designed for both phones and computers.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 ConvertX. All rights reserved.</p>
+    <a href="privacy.html">Privacy Policy</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a>
+  </footer>
 </body>
 </html>
