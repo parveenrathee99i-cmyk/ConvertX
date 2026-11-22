@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://parveenrathee99i-cmyk.github.io/ConvertX/sitemap.xml
