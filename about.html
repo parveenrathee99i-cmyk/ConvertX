@@ -3,15 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about ConvertX and its creator Parveen Rathee.">
   <title>About Us - ConvertX</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .creator-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .creator-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--primary, #2563eb);
+    }
+    .creator-info {
+      flex: 1;
+      min-width: 240px;
+    }
+  </style>
 </head>
 <body>
 
 <header class="navbar">
   <a class="logo" href="index.html">Convert<span>X</span></a>
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html">Converter</a>
+    <a href="resizer.html">Image Resizer</a>
     <a href="about.html">About</a>
     <a href="privacy.html">Privacy</a>
     <a href="contact.html">Contact</a>
@@ -21,20 +43,39 @@
 
 <main class="page-content">
   <h1>About ConvertX</h1>
-  <p><strong>ConvertX</strong> is a free, fast, and privacy-focused online image utility built to make file conversion effortless.</p>
+  <p><strong>ConvertX</strong> is a free, fast, and privacy-focused online file utility built to make everyday document and image conversions effortless—without forcing you to upload sensitive files to unknown servers.</p>
 
   <h2>What You Can Do With ConvertX</h2>
   <ul>
-    <li><strong>Instant Format Conversion:</strong> Convert between PNG, JPG, and WebP formats in seconds.</li>
-    <li><strong>Smart Compression:</strong> Reduce image file sizes without noticeable quality loss.</li>
-    <li><strong>Custom Resizing:</strong> Resize images to exact pixel dimensions with automatic aspect ratio locking.</li>
-    <li><strong>Batch Processing:</strong> Convert multiple images at once and download them together as a ZIP file.</li>
+    <li><strong>All-in-One File Conversion:</strong> Convert between PDF, Word (.docx), JPG, PNG, and WebP formats in seconds.</li>
+    <li><strong>Dedicated Image Resizer:</strong> Resize images to exact pixel dimensions with automatic aspect ratio locking and smart compression.</li>
+    <li><strong>Batch Processing & ZIP Export:</strong> Convert or resize multiple files at once and download them together in a single ZIP archive.</li>
+    <li><strong>100% Browser-Based Privacy:</strong> Every file is processed locally on your device—nothing is ever stored or uploaded to any server.</li>
   </ul>
+
+  <hr style="margin: 30px 0; border: 0; border-top: 1px solid var(--border-color, #e2e8f0);">
+
+  <h2>About the Creator</h2>
+  <div class="creator-card">
+    <img src="profile.jpg" alt="Parveen Rathee - Creator of ConvertX" class="creator-photo">
+    <div class="creator-info">
+      <p>Hi, I'm <strong>Parveen Rathee</strong>, the creator and developer behind <strong>ConvertX</strong>.</p>
+      <p>I built ConvertX with a simple goal: most online file converters are slow, full of intrusive ads, or require uploading personal documents to third-party servers. I wanted to create a clean, lightweight, and completely free web tool where anyone—students, professionals, or creators—can convert and resize files instantly right inside their browser.</p>
+      <p><strong>Email:</strong> <a href="mailto:parveenrathi464@gmail.com">parveenrathi464@gmail.com</a></p>
+      <p><strong>Phone / WhatsApp:</strong> <a href="tel:+918168733742">+91 8168733742</a> | <a href="https://wa.me/918168733742" target="_blank">Chat on WhatsApp</a> | <a href="contact.html">Contact Form</a></p>
+    </div>
+  </div>
 </main>
 
 <footer>
   <p>© 2026 ConvertX. All rights reserved.</p>
-  <p><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact</a></p>
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="resizer.html">Image Resizer</a> |
+    <a href="about.html">About</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="contact.html">Contact</a>
+  </p>
 </footer>
 
 <script>
