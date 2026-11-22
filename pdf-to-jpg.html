@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PDF to JPG Converter Online Free | ConvertX</title>
+
+  <meta name="description" content="Convert PDF pages to JPG images online for free with ConvertX. Upload your PDF, preview pages and download JPG images directly in your browser.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://parveenrathee99i-cmyk.github.io/ConvertX/pdf-to-jpg.html">
+
+  <meta property="og:title" content="Free PDF to JPG Converter - ConvertX">
+  <meta property="og:description" content="Convert PDF pages into JPG images quickly and easily.">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <style>
+    .pdf-tool {
+      max-width: 750px;
+      margin: 40px auto;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .pdf-tool input {
+      margin: 20px 0;
+      max-width: 100%;
+    }
+
+    .pdf-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .pdf-preview img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .page-card {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .download-link {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 15px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 7px;
+    }
+
+    #status {
+      margin: 15px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <a class="logo" href="index.html">Convert<span>X</span></a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="resizer.html">Image Resizer</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <p class="tag">FREE ONLINE PDF CONVERTER</p>
+
+    <h1>PDF to JPG Converter <span>Online Free</span></h1>
+
+    <p class="subtitle">
+      Convert PDF pages into high-quality JPG images
+      directly in your browser. No installation required.
+    </p>
+  </section>
+
+  <section class="converter pdf-tool">
+
+    <h2>Convert PDF to JPG</h2>
+
+    <p>Select a PDF file to convert its pages into JPG images.</p>
+
+    <input
+      type="file"
+      id="pdfInput"
+      accept="application/pdf"
+    >
+
+    <br>
+
+    <button id="convertBtn" class="primary-btn">
+      Convert PDF to JPG
+    </button>
+
+    <p id="status" aria-live="polite"></p>
+
+    <div id="preview" class="pdf-preview"></div>
+
+  </section>
+
+  <section class="about">
+    <h2>How to Convert PDF to JPG?</h2>
+
+    <p>1. Select your PDF file.</p>
+    <p>2. Click the Convert PDF to JPG button.</p>
+    <p>3. Wait for all pages to finish processing.</p>
+    <p>4. Download each JPG image.</p>
+  </section>
+
+  <section class="about">
+    <h2>Why Use ConvertX PDF to JPG Converter?</h2>
+
+    <p>
+      ConvertX lets you turn PDF pages into JPG images
+      without installing desktop software. Conversion
+      happens locally in your browser, so your PDF is
+      not uploaded to a ConvertX server.
+    </p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is this PDF to JPG converter free?</h3>
+    <p>Yes, you can use this tool for free.</p>
+
+    <h3>Do I need to install software?</h3>
+    <p>No, the converter works in your web browser.</p>
+
+    <h3>Can I convert multiple PDF pages?</h3>
+    <p>Yes, each page is rendered as a separate JPG image.</p>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 ConvertX. All rights reserved.</p>
+
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+  const pdfInput = document.getElementById("pdfInput");
+  const convertBtn = document.getElementById("convertBtn");
+  const preview = document.getElementById("preview");
+  const status = document.getElementById("status");
+
+  convertBtn.addEventListener("click", async () => {
+
+    const file = pdfInput.files[0];
+
+    if (!file) {
+      status.textContent = "Please select a PDF file first.";
+      return;
+    }
+
+    if (file.type !== "application/pdf") {
+      status.textContent = "Please select a valid PDF file.";
+      return;
+    }
+
+    preview.innerHTML = "";
+    convertBtn.disabled = true;
+    status.textContent = "Processing PDF...";
+
+    try {
+
+      const buffer = await file.arrayBuffer();
+
+      const pdf = await pdfjsLib.getDocument({
+        data: new Uint8Array(buffer)
+      }).promise;
+
+      for (let i = 1; i <= pdf.numPages; i++) {
+
+        status.textContent =
+          `Converting page ${i} of ${pdf.numPages}...`;
+
+        const page = await pdf.getPage(i);
+
+        const viewport = page.getViewport({ scale: 1.5 });
+
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        await page.render({
+          canvasContext: context,
+          viewport: viewport
+        }).promise;
+
+        const imageURL = canvas.toDataURL("image/jpeg", 0.90);
+
+        const card = document.createElement("div");
+        card.className = "page-card";
+
+        const image = document.createElement("img");
+        image.src = imageURL;
+        image.alt = `PDF page ${i} converted to JPG`;
+
+        const download = document.createElement("a");
+        download.href = imageURL;
+        download.download = `ConvertX-page-${i}.jpg`;
+        download.className = "download-link";
+        download.textContent = `Download Page ${i}`;
+
+        card.appendChild(image);
+        card.appendChild(download);
+
+        preview.appendChild(card);
+
+        canvas.width = 0;
+        canvas.height = 0;
+      }
+
+      status.textContent =
+        `Success! ${pdf.numPages} PDF page(s) converted to JPG.`;
+
+    } catch (error) {
+
+      console.error(error);
+      status.textContent =
+        "Conversion failed. Please try another valid PDF file.";
+
+    } finally {
+
+      convertBtn.disabled = false;
+
+    }
+
+  });
+</script>
+
+</body>
+</html>
