@@ -2,87 +2,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>JPG to PDF Converter Online Free | ConvertX</title>
-  <meta name="description" content="Convert JPG images to PDF online for free with ConvertX. Upload your JPG images and download a PDF file quickly and easily.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://parveenrathee99i-cmyk.github.io/ConvertX/jpg-to-pdf.html">
+<title>JPG to PDF Converter Online Free | ConvertX</title>
+<meta name="description" content="Convert JPG images into a PDF document online for free with ConvertX.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://parveenrathee99i-cmyk.github.io/ConvertX/jpg-to-pdf.html">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-  <link rel="stylesheet" href="style.css">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; }
+body { margin:0; font-family:Arial,sans-serif; background:#f4f7fb; color:#172033; }
+header { background:white; padding:18px 7%; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+header h1 { margin:0; color:#2563eb; }
+header a { text-decoration:none; color:inherit; }
+nav { display:flex; gap:22px; }
+nav a { color:#475569; font-weight:bold; }
+.hero { text-align:center; padding:60px 20px 35px; }
+.hero h2 { font-size:36px; margin-bottom:12px; }
+.hero p { color:#64748b; font-size:17px; }
+.converter-box { max-width:650px; margin:35px auto; background:white; padding:35px; border-radius:18px; box-shadow:0 10px 35px rgba(0,0,0,.07); }
+.upload-area { border:2px dashed #93b4f8; background:#f8faff; padding:35px 15px; border-radius:14px; margin:25px 0; }
+.upload-area input { max-width:100%; }
+button { background:#2563eb; color:white; border:0; padding:15px 30px; border-radius:9px; font-size:16px; font-weight:bold; cursor:pointer; }
+button:hover { background:#1d4ed8; }
+button:disabled { opacity:.6; cursor:not-allowed; }
+.content-section { max-width:850px; margin:25px auto; padding:30px; background:white; border-radius:14px; }
+.content-section h2 { color:#1e40af; }
+.content-section p,.content-section li { color:#475569; line-height:1.8; }
+footer { text-align:center; padding:30px 15px; margin-top:50px; background:#172554; color:white; }
+footer a { color:#bfdbfe; }
+@media(max-width:600px) {
+header { flex-direction:column; gap:15px; }
+nav { gap:15px; }
+.hero h2 { font-size:27px; }
+.converter-box { padding:22px; }
+.content-section { margin:18px; padding:22px; }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1><a href="index.html">ConvertX</a></h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<h1><a href="index.html">ConvertX</a></h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
 </header>
 
 <main>
-  <section class="hero">
-    <h2>JPG to PDF Converter Online Free</h2>
-    <p>Convert your JPG images into a PDF document quickly and easily with ConvertX.</p>
+<section class="hero">
+<h2>JPG to PDF Converter</h2>
+<p>Convert multiple JPG images into one PDF document online for free.</p>
 
-    <div class="converter-box">
-      <h3>Upload JPG Images</h3>
+<div class="converter-box">
+<h3>Convert Your Images</h3>
 
-      <input type="file" id="imageInput" accept="image/jpeg,image/jpg,image/png" multiple>
+<div class="upload-area">
+<p>Select JPG or PNG images</p>
+<input type="file" id="imageInput" accept="image/jpeg,image/png" multiple>
+</div>
 
-      <br><br>
+<button id="convertBtn">Convert to PDF</button>
+<p id="status" aria-live="polite"></p>
+</div>
+</section>
 
-      <button id="convertBtn">Convert to PDF</button>
+<section class="content-section">
+<h2>How to Convert JPG to PDF?</h2>
+<ol>
+<li>Select one or more images.</li>
+<li>Click Convert to PDF.</li>
+<li>Wait for the conversion.</li>
+<li>Download your PDF document.</li>
+</ol>
+</section>
 
-      <p id="status" aria-live="polite"></p>
-    </div>
-  </section>
+<section class="content-section">
+<h2>Why Use ConvertX?</h2>
+<p>ConvertX combines your selected images into a PDF document directly in your browser.</p>
+<ul>
+<li>Free to use</li>
+<li>Combine multiple images</li>
+<li>Simple interface</li>
+<li>No account required</li>
+</ul>
+</section>
 
-  <section>
-    <h2>How to Convert JPG to PDF?</h2>
-    <ol>
-      <li>Select one or more JPG images from your device.</li>
-      <li>Click the Convert to PDF button.</li>
-      <li>Your PDF file will be downloaded automatically.</li>
-    </ol>
-  </section>
-
-  <section>
-    <h2>Why Use ConvertX JPG to PDF Converter?</h2>
-    <p>ConvertX provides a simple way to combine images into a PDF document. The conversion happens in your browser, and your selected images are not uploaded to our server by this page.</p>
-    <ul>
-      <li>Free to use</li>
-      <li>Simple and easy interface</li>
-      <li>Convert multiple images into one PDF</li>
-      <li>No account required</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Frequently Asked Questions</h2>
-
-    <h3>Is this JPG to PDF converter free?</h3>
-    <p>Yes, you can use this converter for free.</p>
-
-    <h3>Can I convert multiple images?</h3>
-    <p>Yes, you can select multiple images and combine them into one PDF.</p>
-
-    <h3>Are my images uploaded?</h3>
-    <p>No. This page processes selected images in your browser.</p>
-  </section>
+<section class="content-section">
+<h2>Frequently Asked Questions</h2>
+<h3>Is JPG to PDF conversion free?</h3>
+<p>Yes, this converter is free to use.</p>
+<h3>Can I add multiple images?</h3>
+<p>Yes, you can combine multiple images into one PDF.</p>
+<h3>Are my images uploaded?</h3>
+<p>No. This page processes images directly in your browser.</p>
+</section>
 </main>
 
 <footer>
-  <p>© 2026 ConvertX. All rights reserved.</p>
-  <a href="privacy.html">Privacy Policy</a> |
-  <a href="about.html">About</a> |
-  <a href="contact.html">Contact</a>
+<p>© 2026 ConvertX. All rights reserved.</p>
+<a href="privacy.html">Privacy Policy</a> |
+<a href="about.html">About</a> |
+<a href="contact.html">Contact</a>
 </footer>
 
 <script>
@@ -90,7 +117,7 @@ const imageInput = document.getElementById("imageInput");
 const convertBtn = document.getElementById("convertBtn");
 const status = document.getElementById("status");
 
-convertBtn.addEventListener("click", async function () {
+convertBtn.addEventListener("click", async function() {
   const files = Array.from(imageInput.files);
 
   if (files.length === 0) {
@@ -99,17 +126,17 @@ convertBtn.addEventListener("click", async function () {
   }
 
   if (files.length > 30) {
-    status.textContent = "Please select up to 30 images at a time.";
+    status.textContent = "Please select up to 30 images.";
     return;
   }
 
-  if (files.some(file => !["image/jpeg", "image/png"].includes(file.type))) {
+  if (files.some(file => !["image/jpeg","image/png"].includes(file.type))) {
     status.textContent = "Please select JPG or PNG images only.";
     return;
   }
 
   if (!window.jspdf) {
-    status.textContent = "PDF library could not load. Please refresh the page.";
+    status.textContent = "PDF library could not load. Refresh the page.";
     return;
   }
 
@@ -121,21 +148,17 @@ convertBtn.addEventListener("click", async function () {
     const pdf = new jsPDF();
 
     for (let i = 0; i < files.length; i++) {
-      const dataUrl = await new Promise((resolve, reject) => {
+      const dataUrl = await new Promise((resolve,reject) => {
         const reader = new FileReader();
-
         reader.onload = () => resolve(reader.result);
         reader.onerror = () => reject(new Error("Image could not be read."));
-
         reader.readAsDataURL(files[i]);
       });
 
-      const image = await new Promise((resolve, reject) => {
+      const image = await new Promise((resolve,reject) => {
         const img = new Image();
-
         img.onload = () => resolve(img);
-        img.onerror = () => reject(new Error("Invalid image file."));
-
+        img.onerror = () => reject(new Error("Invalid image."));
         img.src = dataUrl;
       });
 
@@ -143,30 +166,26 @@ convertBtn.addEventListener("click", async function () {
       const pageHeight = 297;
       const margin = 10;
 
-      const availableWidth = pageWidth - margin * 2;
-      const availableHeight = pageHeight - margin * 2;
-
       const ratio = Math.min(
-        availableWidth / image.width,
-        availableHeight / image.height
+        (pageWidth - margin * 2) / image.width,
+        (pageHeight - margin * 2) / image.height
       );
 
       const width = image.width * ratio;
       const height = image.height * ratio;
 
-      if (i > 0) {
-        pdf.addPage();
-      }
+      if (i > 0) pdf.addPage();
 
       const x = (pageWidth - width) / 2;
       const y = (pageHeight - height) / 2;
 
-      pdf.addImage(dataUrl, "JPEG", x, y, width, height);
+      pdf.addImage(dataUrl,"JPEG",x,y,width,height);
     }
 
     pdf.save("ConvertX-JPG-to-PDF.pdf");
     status.textContent = "Success! Your PDF has been downloaded.";
-  } catch (error) {
+  } catch(error) {
+    console.error(error);
     status.textContent = "Conversion failed. Please try another image.";
   } finally {
     convertBtn.disabled = false;
@@ -176,4 +195,3 @@ convertBtn.addEventListener("click", async function () {
 
 </body>
 </html>
-
