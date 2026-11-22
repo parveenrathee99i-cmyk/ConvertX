@@ -2,15 +2,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PNG to JPG Converter Online Free | ConvertX</title>
-  <meta name="description" content="Convert PNG images to JPG online for free with ConvertX. Upload your PNG image and download a JPG file quickly and easily.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://parveenrathee99i-cmyk.github.io/ConvertX/png-to-jpg.html">
+<title>PNG to JPG Converter Online Free | ConvertX</title>
+<meta name="description" content="Convert PNG images to JPG online for free with ConvertX.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://parveenrathee99i-cmyk.github.io/ConvertX/png-to-jpg.html">
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+header {
+  background: #ffffff;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+header h1 {
+  margin: 0;
+  color: #2563eb;
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  color: #475569;
+  font-weight: 600;
+}
+
+.hero {
+  text-align: center;
+  padding: 65px 20px 35px;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  color: #64748b;
+  font-size: 17px;
+}
+
+.converter-box {
+  max-width: 650px;
+  margin: 35px auto;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.07);
+}
+
+.converter-box h3 {
+  font-size: 23px;
+  margin-top: 0;
+}
+
+.upload-area {
+  border: 2px dashed #93b4f8;
+  background: #f8faff;
+  padding: 35px 15px;
+  border-radius: 14px;
+  margin: 25px 0;
+}
+
+.upload-area input {
+  max-width: 100%;
+}
+
+.quality-area {
+  margin: 25px 0;
+}
+
+.quality-area input {
+  width: 75%;
+  accent-color: #2563eb;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 9px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#status {
+  margin-top: 18px;
+  font-weight: 600;
+}
+
+#preview img {
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+#preview a {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 22px;
+  background: #16a34a;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.content-section {
+  max-width: 850px;
+  margin: 25px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 14px;
+}
+
+.content-section h2 {
+  color: #1e40af;
+}
+
+.content-section p,
+.content-section li {
+  color: #475569;
+  line-height: 1.8;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  margin-top: 50px;
+  background: #172554;
+  color: white;
+}
+
+footer a {
+  color: #bfdbfe;
+  text-decoration: none;
+}
+
+@media(max-width:600px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  .hero h2 {
+    font-size: 27px;
+  }
+
+  .converter-box {
+    padding: 22px;
+  }
+
+  .content-section {
+    margin: 18px;
+    padding: 22px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -25,66 +213,68 @@
 </header>
 
 <main>
-  <section class="hero">
-    <h2>PNG to JPG Converter Online Free</h2>
-    <p>Convert your PNG images into JPG format quickly and easily with ConvertX.</p>
 
-    <div class="converter-box">
-      <h3>Upload PNG Image</h3>
+<section class="hero">
+  <h2>PNG to JPG Converter</h2>
+  <p>Convert your PNG images into JPG format online for free.</p>
 
+  <div class="converter-box">
+    <h3>Convert Your Image</h3>
+
+    <div class="upload-area">
+      <p>Select your PNG image</p>
       <input type="file" id="pngInput" accept="image/png">
+    </div>
 
+    <div class="quality-area">
+      <label for="quality"><strong>JPG Quality:</strong></label>
       <br><br>
-
-      <label for="quality">JPG Quality</label>
-      <br>
       <input type="range" id="quality" min="50" max="100" value="90">
       <span id="qualityValue">90%</span>
-
-      <br><br>
-
-      <button id="convertBtn">Convert to JPG</button>
-
-      <p id="status" aria-live="polite"></p>
-
-      <div id="preview"></div>
     </div>
-  </section>
 
-  <section>
-    <h2>How to Convert PNG to JPG?</h2>
-    <ol>
-      <li>Select a PNG image from your device.</li>
-      <li>Choose your preferred JPG quality.</li>
-      <li>Click Convert to JPG.</li>
-      <li>Download your converted image.</li>
-    </ol>
-  </section>
+    <button id="convertBtn">Convert to JPG</button>
 
-  <section>
-    <h2>Why Use ConvertX PNG to JPG Converter?</h2>
-    <p>ConvertX makes it simple to convert PNG images into JPG format. The conversion takes place in your browser, and your selected image is not uploaded to our server by this page.</p>
-    <ul>
-      <li>Free to use</li>
-      <li>Easy image conversion</li>
-      <li>Adjustable JPG quality</li>
-      <li>No account required</li>
-    </ul>
-    <p>Note: JPG does not support transparency. Transparent areas in PNG images will appear with a white background in the converted JPG.</p>
-  </section>
+    <p id="status" aria-live="polite"></p>
+    <div id="preview"></div>
+  </div>
+</section>
 
-  <section>
-    <h2>Frequently Asked Questions</h2>
+<section class="content-section">
+  <h2>How to Convert PNG to JPG?</h2>
+  <ol>
+    <li>Select a PNG image from your device.</li>
+    <li>Choose your preferred JPG quality.</li>
+    <li>Click Convert to JPG.</li>
+    <li>Download your converted image.</li>
+  </ol>
+</section>
 
-    <h3>Is PNG to JPG conversion free?</h3>
-    <p>Yes, you can use this converter for free.</p>
+<section class="content-section">
+  <h2>Why Use ConvertX?</h2>
+  <p>ConvertX makes it simple to convert PNG images into JPG format. Conversion happens directly in your browser.</p>
+  <ul>
+    <li>Free to use</li>
+    <li>Easy image conversion</li>
+    <li>Adjustable JPG quality</li>
+    <li>No account required</li>
+  </ul>
+  <p>Note: JPG does not support transparency. Transparent areas become white in the converted image.</p>
+</section>
 
-    <h3>Will transparency be preserved?</h3>
-    <p>No. JPG does not support transparent backgrounds, so transparent areas become white.</p>
+<section class="content-section">
+  <h2>Frequently Asked Questions</h2>
 
-    <h3>Are my images uploaded?</h3>
-    <p>No. This page converts your selected image directly in your browser.</p>
-  </section>
+  <h3>Is PNG to JPG conversion free?</h3>
+  <p>Yes, you can use this converter for free.</p>
+
+  <h3>Will transparency be preserved?</h3>
+  <p>No. Transparent areas become white in JPG format.</p>
+
+  <h3>Are my images uploaded?</h3>
+  <p>No. This page converts your image directly in your browser.</p>
+</section>
+
 </main>
 
 <footer>
@@ -140,11 +330,8 @@ convertBtn.addEventListener("click", function () {
         canvas.height = img.naturalHeight;
 
         const ctx = canvas.getContext("2d");
-
-        // JPG does not support transparency, so use a white background.
         ctx.fillStyle = "#ffffff";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-
         ctx.drawImage(img, 0, 0);
 
         const jpgData = canvas.toDataURL(
@@ -156,19 +343,16 @@ convertBtn.addEventListener("click", function () {
         imagePreview.src = jpgData;
         imagePreview.alt = "Converted JPG preview";
         imagePreview.style.maxWidth = "100%";
-        imagePreview.style.marginTop = "15px";
 
         const downloadLink = document.createElement("a");
         downloadLink.href = jpgData;
         downloadLink.download = "ConvertX-image.jpg";
         downloadLink.textContent = "Download JPG";
-        downloadLink.style.display = "block";
-        downloadLink.style.marginTop = "15px";
 
         preview.appendChild(imagePreview);
         preview.appendChild(downloadLink);
 
-        status.textContent = "Success! Your image is ready to download.";
+        status.textContent = "Success! Your image is ready.";
       } catch (error) {
         status.textContent = "Conversion failed. Please try another image.";
       } finally {
@@ -177,7 +361,7 @@ convertBtn.addEventListener("click", function () {
     };
 
     img.onerror = function () {
-      status.textContent = "Could not read this image. Please try another PNG.";
+      status.textContent = "Could not read this image.";
       convertBtn.disabled = false;
     };
 
