@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - ConvertX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <a class="logo" href="index.html">Convert<span>X</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="contact.html">Contact</a>
+    <button id="themeToggle" class="theme-btn" title="Toggle Dark/Light Mode">🌙</button>
+  </nav>
+</header>
+
+<main class="page-content">
+  <h1>Privacy Policy</h1>
+  <p><strong>Last Updated:</strong> November 2026</p>
+
+  <h2>1. 100% Client-Side Image Processing</h2>
+  <p>At <strong>ConvertX</strong>, your privacy comes first. All image conversions, compressions, and resizing happen directly inside your web browser using HTML5 Canvas technology. <strong>Your files are never uploaded to any external server.</strong></p>
+
+  <h2>2. Data Collection</h2>
+  <p>We do not collect, store, or view the images you convert. Once you close or refresh the browser tab, your processed images are cleared from browser memory.</p>
+
+  <h2>3. Local Storage</h2>
+  <p>We only use your browser's local storage to remember your theme preference (Dark Mode or Light Mode).</p>
+</main>
+
+<footer>
+  <p>© 2026 ConvertX. All rights reserved.</p>
+  <p><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  const themeToggle = document.getElementById("themeToggle");
+  if (localStorage.getItem("convertx-theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "☀️";
+  }
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("convertx-theme", isDark ? "dark" : "light");
+  });
+</script>
+</body>
+</html>
