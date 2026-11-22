@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - ConvertX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <a class="logo" href="index.html">Convert<span>X</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="contact.html">Contact</a>
+    <button id="themeToggle" class="theme-btn" title="Toggle Dark/Light Mode">🌙</button>
+  </nav>
+</header>
+
+<main class="page-content">
+  <h1>About ConvertX</h1>
+  <p><strong>ConvertX</strong> is a free, fast, and privacy-focused online image utility built to make file conversion effortless.</p>
+
+  <h2>What You Can Do With ConvertX</h2>
+  <ul>
+    <li><strong>Instant Format Conversion:</strong> Convert between PNG, JPG, and WebP formats in seconds.</li>
+    <li><strong>Smart Compression:</strong> Reduce image file sizes without noticeable quality loss.</li>
+    <li><strong>Custom Resizing:</strong> Resize images to exact pixel dimensions with automatic aspect ratio locking.</li>
+    <li><strong>Batch Processing:</strong> Convert multiple images at once and download them together as a ZIP file.</li>
+  </ul>
+</main>
+
+<footer>
+  <p>© 2026 ConvertX. All rights reserved.</p>
+  <p><a href="index.html">Home</a> | <a href="about.html">About</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  const themeToggle = document.getElementById("themeToggle");
+  if (localStorage.getItem("convertx-theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "☀️";
+  }
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("convertx-theme", isDark ? "dark" : "light");
+  });
+</script>
+</body>
+</html>
