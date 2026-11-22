@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Convert images online for free with ConvertX.">
-  <title>ConvertX - Free Online File Converter</title>
+  <meta name="description" content="Convert, compress, and resize images online for free with ConvertX.">
+  <title>ConvertX - Free Online Image Converter, Compressor & Resizer</title>
   <link rel="stylesheet" href="style.css">
+  <!-- JSZip library for Batch ZIP downloads -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
 
@@ -16,6 +17,7 @@
     <a href="#tools">Tools</a>
     <a href="#converter">Converter</a>
     <a href="#about">About</a>
+    <button id="themeToggle" class="theme-btn" title="Toggle Dark/Light Mode">🌙</button>
   </nav>
 </header>
 
@@ -24,54 +26,78 @@
     <p class="tag">FREE ONLINE CONVERSION</p>
     <h1>Convert files <span>Without Limits.</span></h1>
     <p class="subtitle">
-      Simple, fast and secure file conversion.
-      No software installation required.
+      Convert, compress, and resize images directly in your browser.
+      Fast, private, and no software installation required.
     </p>
     <a href="#converter" class="primary-btn">Start Converting</a>
   </section>
 
   <section class="converter" id="converter">
-    <h2>Image Converter</h2>
-    <p>Select an image and choose your output format.</p>
+    <h2>Image Converter Pro</h2>
+    <p>Select one or multiple images, customize settings, and convert instantly.</p>
 
     <label class="upload-box" id="dropZone">
-      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp">
+      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp" multiple>
       <span class="upload-icon">↑</span>
-      <strong>Choose an image</strong>
-      <span>or drag and drop it here</span>
-      <small>PNG, JPG, WebP</small>
+      <strong>Choose images</strong>
+      <span>or drag and drop multiple files here</span>
+      <small>Supports PNG, JPG, WebP (Batch supported)</small>
     </label>
 
     <div id="fileInfo"></div>
 
-    <div class="controls">
-      <label for="format">Convert to</label>
-      <select id="format">
-        <option value="image/png">PNG</option>
-        <option value="image/jpeg">JPG</option>
-        <option value="image/webp">WebP</option>
-      </select>
+    <!-- Advanced Settings Panel -->
+    <div class="settings-panel">
+      <div class="control-group">
+        <label for="format">Output Format</label>
+        <select id="format">
+          <option value="image/png">PNG</option>
+          <option value="image/jpeg">JPG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+      </div>
 
-      <button id="convertBtn">Convert Now</button>
+      <div class="control-group" id="qualityGroup">
+        <label for="quality">Quality / Compression: <span id="qualityValue">85%</span></label>
+        <input type="range" id="quality" min="10" max="100" value="85">
+      </div>
+
+      <div class="control-group resize-group">
+        <label>Resize (Optional - in px)</label>
+        <div class="resize-inputs">
+          <input type="number" id="widthInput" placeholder="Width" min="1">
+          <span>×</span>
+          <input type="number" id="heightInput" placeholder="Height" min="1">
+        </div>
+        <label class="checkbox-label">
+          <input type="checkbox" id="aspectLock" checked> Lock Aspect Ratio
+        </label>
+      </div>
     </div>
 
-    <div id="result"></div>
+    <div class="action-buttons">
+      <button id="convertBtn" class="primary-btn">Convert All Now</button>
+      <button id="clearBtn" class="secondary-btn" style="display:none;">Clear</button>
+    </div>
+
+    <!-- Live Preview & Results Section -->
+    <div id="result" class="result-grid"></div>
   </section>
 
   <section class="tools" id="tools">
     <h2>Popular Tools</h2>
     <div class="tool-grid">
-      <div class="tool-card">JPG to PNG</div>
-      <div class="tool-card">PNG to JPG</div>
-      <div class="tool-card">WebP Converter</div>
-      <div class="tool-card">Image Converter</div>
+      <div class="tool-card" data-format="image/png" data-quality="90">JPG to PNG</div>
+      <div class="tool-card" data-format="image/jpeg" data-quality="85">PNG to JPG</div>
+      <div class="tool-card" data-format="image/webp" data-quality="80">WebP Converter</div>
+      <div class="tool-card" data-format="image/jpeg" data-quality="50">Image Compressor</div>
     </div>
   </section>
 
   <section class="about" id="about">
     <h2>Why ConvertX?</h2>
-    <p>Convert images directly in your browser.
-       Your image files are not uploaded to our server.</p>
+    <p>Convert, resize, and compress images directly in your browser using HTML5 Canvas.
+       Your image files are never uploaded to any server.</p>
   </section>
 </main>
 
