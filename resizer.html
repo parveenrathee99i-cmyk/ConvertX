@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resize and compress JPG, PNG, and WebP images online for free with ConvertX.">
+  <title>Image Resizer & Compressor - ConvertX</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+  <a class="logo" href="index.html">Convert<span>X</span></a>
+  <nav>
+    <a href="index.html">Converter</a>
+    <a href="resizer.html">Image Resizer</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="contact.html">Contact</a>
+    <button id="themeToggle" class="theme-btn" title="Toggle Dark/Light Mode">🌙</button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="tag">DEDICATED IMAGE TOOL</p>
+    <h1>Resize & Compress <span>Images.</span></h1>
+    <p class="subtitle">
+      Change image dimensions in pixels, lock aspect ratio, and reduce file size in seconds.
+    </p>
+  </section>
+
+  <section class="converter" id="resizer">
+    <h2>Bulk Image Resizer</h2>
+    <p>Upload one or multiple images to resize and compress them.</p>
+
+    <label class="upload-box" id="dropZone">
+      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp" multiple>
+      <span class="upload-icon">↑</span>
+      <strong>Choose images to resize</strong>
+      <span>or drag and drop multiple images here</span>
+      <small>Supports PNG, JPG, WebP</small>
+    </label>
+
+    <div id="fileInfo"></div>
+
+    <div class="settings-panel">
+      <div class="control-group resize-group">
+        <label>Dimensions (in pixels)</label>
+        <div class="resize-inputs">
+          <input type="number" id="widthInput" placeholder="Width (px)" min="1">
+          <span>×</span>
+          <input type="number" id="heightInput" placeholder="Height (px)" min="1">
+        </div>
+        <label class="checkbox-label">
+          <input type="checkbox" id="aspectLock" checked> Lock Aspect Ratio
+        </label>
+      </div>
+
+      <div class="control-group">
+        <label for="format">Save Format</label>
+        <select id="format">
+          <option value="image/jpeg">JPG (Smallest Size)</option>
+          <option value="image/png">PNG (High Quality)</option>
+          <option value="image/webp">WebP (Modern Web)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="quality">Compression Quality: <span id="qualityValue">80%</span></label>
+        <input type="range" id="quality" min="10" max="100" value="80">
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button id="convertBtn" class="primary-btn">Resize & Download</button>
+      <button id="clearBtn" class="secondary-btn" style="display:none;">Clear</button>
+    </div>
+
+    <div id="result" class="result-grid"></div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 ConvertX. All rights reserved.</p>
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="resizer.html">Image Resizer</a> |
+    <a href="about.html">About</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
