@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Convert, compress, and resize images online for free with ConvertX.">
-  <title>ConvertX - Free Online Image Converter, Compressor & Resizer</title>
+  <meta name="description" content="Convert PDF, JPG, PNG, WebP, and Word files online for free with ConvertX.">
+  <title>ConvertX - All-in-One PDF, Image & Word Converter</title>
   <link rel="stylesheet" href="style.css">
-  <!-- JSZip library for Batch ZIP downloads -->
+  <!-- Browser-based Conversion Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 </head>
 <body>
 
 <header class="navbar">
   <a class="logo" href="index.html">Convert<span>X</span></a>
   <nav>
-    <a href="#tools">Tools</a>
-    <a href="#converter">Converter</a>
+    <a href="index.html">Converter</a>
+    <a href="resizer.html">Image Resizer</a>
     <a href="about.html">About</a>
     <a href="privacy.html">Privacy</a>
     <a href="contact.html">Contact</a>
@@ -25,55 +28,50 @@
 
 <main>
   <section class="hero">
-    <p class="tag">FREE ONLINE CONVERSION</p>
+    <p class="tag">ALL-IN-ONE ONLINE CONVERSION</p>
     <h1>Convert files <span>Without Limits.</span></h1>
     <p class="subtitle">
-      Convert, compress, and resize images directly in your browser.
-      Fast, private, and no software installation required.
+      Convert PDF, JPG, PNG, WebP, and Word (.docx) files directly in your browser.
+      100% private, fast, and free.
     </p>
     <a href="#converter" class="primary-btn">Start Converting</a>
   </section>
 
   <section class="converter" id="converter">
-    <h2>Image Converter Pro</h2>
-    <p>Select one or multiple images, customize settings, and convert instantly.</p>
+    <h2>Universal File Converter</h2>
+    <p>Upload PDF, Word (.docx), JPG, PNG, or WebP files and pick your output format.</p>
 
     <label class="upload-box" id="dropZone">
-      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp" multiple>
+      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp,application/pdf,.docx,.txt" multiple>
       <span class="upload-icon">↑</span>
-      <strong>Choose images</strong>
+      <strong>Choose files</strong>
       <span>or drag and drop multiple files here</span>
-      <small>Supports PNG, JPG, WebP (Batch supported)</small>
+      <small>Supports PDF, Word (.docx), JPG, PNG, WebP</small>
     </label>
 
     <div id="fileInfo"></div>
 
-    <!-- Advanced Settings Panel -->
+    <!-- Clean Converter Controls (No Resizer Clutter) -->
     <div class="settings-panel">
       <div class="control-group">
-        <label for="format">Output Format</label>
+        <label for="format">Convert To</label>
         <select id="format">
-          <option value="image/png">PNG</option>
-          <option value="image/jpeg">JPG</option>
-          <option value="image/webp">WebP</option>
+          <optgroup label="Document Formats">
+            <option value="application/pdf">PDF Document (.pdf)</option>
+            <option value="application/msword">Word Document (.doc)</option>
+            <option value="text/plain">Plain Text (.txt)</option>
+          </optgroup>
+          <optgroup label="Image Formats">
+            <option value="image/jpeg">JPG Image (.jpg)</option>
+            <option value="image/png">PNG Image (.png)</option>
+            <option value="image/webp">WebP Image (.webp)</option>
+          </optgroup>
         </select>
       </div>
 
       <div class="control-group" id="qualityGroup">
-        <label for="quality">Quality / Compression: <span id="qualityValue">85%</span></label>
-        <input type="range" id="quality" min="10" max="100" value="85">
-      </div>
-
-      <div class="control-group resize-group">
-        <label>Resize (Optional - in px)</label>
-        <div class="resize-inputs">
-          <input type="number" id="widthInput" placeholder="Width" min="1">
-          <span>×</span>
-          <input type="number" id="heightInput" placeholder="Height" min="1">
-        </div>
-        <label class="checkbox-label">
-          <input type="checkbox" id="aspectLock" checked> Lock Aspect Ratio
-        </label>
+        <label for="quality">Output Quality: <span id="qualityValue">90%</span></label>
+        <input type="range" id="quality" min="10" max="100" value="90">
       </div>
     </div>
 
@@ -82,24 +80,27 @@
       <button id="clearBtn" class="secondary-btn" style="display:none;">Clear</button>
     </div>
 
-    <!-- Live Preview & Results Section -->
     <div id="result" class="result-grid"></div>
   </section>
 
   <section class="tools" id="tools">
-    <h2>Popular Tools</h2>
+    <h2>All Supported Conversions</h2>
     <div class="tool-grid">
+      <div class="tool-card" data-format="application/pdf" data-quality="90">JPG / PNG to PDF</div>
+      <div class="tool-card" data-format="image/jpeg" data-quality="90">PDF to JPG</div>
+      <div class="tool-card" data-format="image/png" data-quality="90">PDF to PNG</div>
+      <div class="tool-card" data-format="application/msword" data-quality="90">PDF to Word</div>
+      <div class="tool-card" data-format="application/pdf" data-quality="90">Word to PDF</div>
       <div class="tool-card" data-format="image/png" data-quality="90">JPG to PNG</div>
       <div class="tool-card" data-format="image/jpeg" data-quality="85">PNG to JPG</div>
-      <div class="tool-card" data-format="image/webp" data-quality="80">WebP Converter</div>
-      <div class="tool-card" data-format="image/jpeg" data-quality="50">Image Compressor</div>
+      <div class="tool-card" data-format="image/webp" data-quality="85">WebP Converter</div>
     </div>
   </section>
 
   <section class="about" id="about">
     <h2>Why ConvertX?</h2>
-    <p>Convert, resize, and compress images directly in your browser using HTML5 Canvas.
-       Your image files are never uploaded to any server.</p>
+    <p>Convert PDFs, Word documents, and images directly inside your browser.
+       Your files never leave your device.</p>
   </section>
 </main>
 
@@ -107,6 +108,7 @@
   <p>© 2026 ConvertX. All rights reserved.</p>
   <p>
     <a href="index.html">Home</a> |
+    <a href="resizer.html">Image Resizer</a> |
     <a href="about.html">About</a> |
     <a href="privacy.html">Privacy Policy</a> |
     <a href="contact.html">Contact</a>
